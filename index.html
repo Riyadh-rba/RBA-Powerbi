@@ -1,57 +1,59 @@
-from pathlib import Path
-
-# Build a professional HTML wrapper
-html = """
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>لوحة تقارير شركة رياض بن بليهد للاستشارات المحاسبية</title>
+<title>لوحة التقارير المالية | شركة رياض بن بليهد للاستشارات المحاسبية</title>
+
 <style>
     body {
         margin: 0;
-        font-family: "Tahoma", sans-serif;
-        background: linear-gradient(135deg, #f4f6fb, #e8edf5);
+        padding: 0;
+        font-family: "Cairo", sans-serif;
+        background: linear-gradient(135deg, #f5f5f5, #e8ecf1);
         color: #333;
     }
+
     .header {
-        background: #ffffffdd;
-        padding: 25px;
+        background: #1a3b5d;
+        color: white;
+        padding: 25px 40px;
+        font-size: 28px;
+        font-weight: 700;
         text-align: center;
-        font-size: 26px;
-        font-weight: bold;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-        margin-bottom: 10px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     }
-    .subtitle {
+
+    .sub-header {
         text-align: center;
         font-size: 18px;
-        margin-top: -10px;
-        margin-bottom: 25px;
-        color: #444;
+        margin-top: 5px;
+        color: #e0e0e0;
     }
+
     .container {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        padding-bottom: 20px;
+        height: calc(100vh - 220px);
+        padding: 20px 40px;
+        box-sizing: border-box;
     }
+
     iframe {
-        width: 90%;
-        height: 80vh;
+        width: 100%;
+        height: 100%;
         border: none;
         border-radius: 12px;
-        box-shadow: 0 5px 18px rgba(0,0,0,0.2);
-        background: white;
+        box-shadow: 0 4px 25px rgba(0,0,0,0.15);
     }
+
     .footer {
-        margin-top: 25px;
-        padding: 20px;
-        text-align: center;
+        margin-top: 10px;
+        padding: 25px 40px;
         font-size: 15px;
-        background: #ffffffdd;
         line-height: 1.8;
-        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        text-align: center;
+        color: #555;
+        background: #ffffffd8;
+        box-shadow: 0 -3px 8px rgba(0,0,0,0.05);
     }
 </style>
 </head>
@@ -59,30 +61,24 @@ html = """
 <body>
 
 <div class="header">
-شركة رياض بن بليهد للاستشارات المحاسبية
-</div>
-
-<div class="subtitle">
-تم إعداد هذا التقرير من قبل فريق المراجعة
+    شركة رياض بن بليهد للاستشارات المحاسبية
+    <div class="sub-header">تم إعداد هذا التقرير من قبل فريق المراجعة</div>
 </div>
 
 <div class="container">
-  <iframe 
-    src="https://app.powerbi.com/view?r=eyJrIjoiMTk5YmM5ZGUtOGUzYi00YTczLTlmNzgtMjcxNzY1NGM4OGU1IiwidCI6IjZmNGNiOTk1LTRhYzAtNDI3YS04ZmFiLTI2MjM5ZDNlMGYyNyIsImMiOjl9&pageName=7b2d1320256817449528"
-    allowfullscreen="true">
-  </iframe>
+    <iframe 
+        src="https://app.powerbi.com/reportEmbed?reportId=b905eb7d-3fc1-4bbc-b623-e7b257306d3d&autoAuth=true&ctid=6f4cb995-4ac0-427a-8fab-26239d3e0f27" 
+        allowfullscreen="true">
+    </iframe>
 </div>
 
 <div class="footer">
-تم إعداد هذه اللوحة التحليلية بناءً على البيانات المالية والمعلومات التي تم مشاركتها مع 
-فريق شركة رياض بن بليهد للاستشارات المحاسبية. لا يتحمل فريق العمل أي مسؤولية عن أي أخطاء
-ناتجة عن عدم دقة أو اكتمال البيانات المقدمة من العميل. هذا العرض مخصص لأغراض التحليل الداخلي
-ودعم اتخاذ القرار، ولا يُعد بديلاً عن القوائم المالية المعتمدة أو التقارير النظامية.
+    تم إعداد هذه اللوحة التحليلية بناءً على البيانات المالية والمعلومات التي تم مشاركتها مع فريق شركة 
+    رياض بن بليهد للاستشارات المحاسبية.  
+    لا يتحمل فريق العمل أي مسؤولية عن أي أخطاء ناتجة عن عدم دقة أو اكتمال البيانات المقدمة من العميل.  
+    هذا العرض مخصص لأغراض التحليل الداخلي ودعم اتخاذ القرار، ولا يُعد بديلاً عن القوائم المالية 
+    المعتمدة أو التقارير النظامية.
 </div>
 
 </body>
 </html>
-"""
-
-Path("/mnt/data/powerbi_professional.html").write_text(html)
-"/mnt/data/powerbi_professional.html created"
