@@ -1,84 +1,87 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>لوحة التقارير المالية | شركة رياض بن بليهد للاستشارات المحاسبية</title>
+    <meta charset="UTF-8">
+    <title>لوحة التحليل المالي - شركة رياض بن بليهد للاستشارات المحاسبية</title>
 
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: "Cairo", sans-serif;
-        background: linear-gradient(135deg, #f5f5f5, #e8ecf1);
-        color: #333;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: "Tahoma", sans-serif;
+            background: linear-gradient(to bottom right, #f5f7fa, #d7dde8);
+            direction: rtl;
+        }
 
-    .header {
-        background: #1a3b5d;
-        color: white;
-        padding: 25px 40px;
-        font-size: 28px;
-        font-weight: 700;
-        text-align: center;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    }
+        .header {
+            background: #ffffffee;
+            padding: 25px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            color: #1a237e;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
 
-    .sub-header {
-        text-align: center;
-        font-size: 18px;
-        margin-top: 5px;
-        color: #e0e0e0;
-    }
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 5px;
+            color: #424242;
+        }
 
-    .container {
-        width: 100%;
-        height: calc(100vh - 220px);
-        padding: 20px 40px;
-        box-sizing: border-box;
-    }
+        .dashboard-container {
+            width: 100%;
+            height: 85vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-    iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-        border-radius: 12px;
-        box-shadow: 0 4px 25px rgba(0,0,0,0.15);
-    }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+        }
 
-    .footer {
-        margin-top: 10px;
-        padding: 25px 40px;
-        font-size: 15px;
-        line-height: 1.8;
-        text-align: center;
-        color: #555;
-        background: #ffffffd8;
-        box-shadow: 0 -3px 8px rgba(0,0,0,0.05);
-    }
-</style>
+        .footer {
+            background: #ffffffdd;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.8;
+            margin-top: 15px;
+            box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+
 </head>
 
 <body>
 
-<div class="header">
-    شركة رياض بن بليهد للاستشارات المحاسبية
-    <div class="sub-header">تم إعداد هذا التقرير من قبل فريق المراجعة</div>
-</div>
+    <div class="header">
+        شركة رياض بن بليهد للاستشارات المحاسبية
+    </div>
 
-<div class="container">
-    <iframe 
-        src="https://app.powerbi.com/reportEmbed?reportId=b905eb7d-3fc1-4bbc-b623-e7b257306d3d&autoAuth=true&ctid=6f4cb995-4ac0-427a-8fab-26239d3e0f27" 
-        allowfullscreen="true">
-    </iframe>
-</div>
+    <div class="subtitle">
+        تم إعداد هذا التقرير من قبل فريق المراجعة
+    </div>
 
-<div class="footer">
-    تم إعداد هذه اللوحة التحليلية بناءً على البيانات المالية والمعلومات التي تم مشاركتها مع فريق شركة 
-    رياض بن بليهد للاستشارات المحاسبية.  
-    لا يتحمل فريق العمل أي مسؤولية عن أي أخطاء ناتجة عن عدم دقة أو اكتمال البيانات المقدمة من العميل.  
-    هذا العرض مخصص لأغراض التحليل الداخلي ودعم اتخاذ القرار، ولا يُعد بديلاً عن القوائم المالية 
-    المعتمدة أو التقارير النظامية.
-</div>
+    <div class="dashboard-container">
+        <iframe src="https://app.powerbi.com/view?r=eyJrIjoiMTk5YmM5ZGUtOGUzYi00YTczLTlmNzgtMjcxNzY1NGM4OGU1IiwidCI6IjZmNGNiOTk1LTRhYzAtNDI3YS04ZmFiLTI2MjM5ZDNlMGYyNyIsImMiOjl9&navContentPaneEnabled=false&filterPaneEnabled=false"
+            allowfullscreen="true">
+        </iframe>
+    </div>
+
+    <div class="footer">
+        تم إعداد هذه اللوحة التحليلية بناءً على البيانات المالية والمعلومات 
+        التي تم مشاركتها مع فريق شركة رياض بن بليهد للاستشارات المحاسبية.  
+        لا يتحمل فريق العمل أي مسؤولية عن أي أخطاء ناتجة عن عدم دقة أو 
+        اكتمال البيانات المقدمة من العميل.  
+        هذا العرض مخصص لأغراض التحليل الداخلي ودعم اتخاذ القرار، 
+        ولا يُعد بديلاً عن القوائم المالية المعتمدة أو التقارير النظامية.
+    </div>
 
 </body>
 </html>
