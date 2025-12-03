@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لوحة مؤشرات مالية مختصرة – شركة الطريق المختصر للتسويق</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-blue: #1e3a5f;
             --accent-blue: #0c8ac5;
-            --light-bg: #f8fafd;
+            --ai-green: #10b981;
+            --ai-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --light-bg: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
             --card-bg: #ffffff;
-            --text-dark: #2d3748;
-            --text-light: #718096;
-            --border-color: #e2e8f0;
-            --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-            --radius: 16px;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --border-color: rgba(226, 232, 240, 0.8);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.12);
+            --radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -32,90 +37,130 @@
             line-height: 1.6;
             min-height: 100vh;
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(28, 58, 95, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(12, 138, 197, 0.03) 0%, transparent 50%);
+            background-attachment: fixed;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 25px;
         }
 
-        /* Header */
+        /* Header - تصميم حديث */
         .header {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #153055 100%);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #0f2a4d 100%);
             color: white;
-            padding: 30px 0;
+            padding: 35px 0;
             position: relative;
             overflow: hidden;
             border-bottom: 4px solid var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .header::before {
             content: "";
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
             background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
             border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(12, 138, 197, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s infinite linear reverse;
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .header-content {
             position: relative;
             text-align: center;
             padding: 0 20px;
+            z-index: 2;
         }
 
-        .company-name {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .company-sub {
-            font-size: 18px;
-            font-weight: 400;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .logo-section {
+        .company-logo-section {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
             margin-bottom: 25px;
             flex-wrap: wrap;
         }
 
         .logo-badge {
             background: rgba(255, 255, 255, 0.15);
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 700;
+            padding: 15px 35px;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 24px;
+            letter-spacing: 2px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .logo-badge:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .company-name {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #fff, #e0f2fe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-sub {
             font-size: 20px;
-            letter-spacing: 1px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            color: #cbd5e1;
         }
 
         .report-title {
-            font-size: 32px;
-            font-weight: 800;
-            margin-top: 10px;
+            font-size: 36px;
+            font-weight: 900;
+            margin-top: 15px;
             line-height: 1.3;
             color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            padding: 0 10px;
         }
 
-        /* Power BI Container - HIDDEN FOOTER ONLY */
+        .report-subtitle {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* Power BI Container */
         .dashboard-container {
-            margin: 40px auto;
+            margin: 50px auto;
             width: 100%;
             position: relative;
         }
@@ -127,7 +172,13 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
             position: relative;
-            height: 82vh;
+            height: 85vh;
+            transition: var(--transition);
+        }
+
+        .dashboard-wrapper:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
         }
 
         .dashboard-wrapper::before {
@@ -136,12 +187,19 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--primary-blue));
-            z-index: 2;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--primary-blue), var(--ai-green));
+            background-size: 300% 100%;
+            animation: gradientFlow 3s ease infinite;
+            z-index: 3;
         }
 
-        /* الحاوية الرئيسية للإطار */
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .iframe-mask-container {
             width: 100%;
             height: 100%;
@@ -150,37 +208,232 @@
             border-radius: 0 0 var(--radius) var(--radius);
         }
 
-        /* إخفاء تذييل Power BI فقط */
         .iframe-mask-container iframe {
             width: 100%;
             height: 100%;
             border: none;
             display: block;
             position: relative;
-            /* إخفاء التذييل فقط مع إظهار التبويبات */
-            clip-path: polygon(0 0, 100% 0, 100% 96%, 0 96%);
-            -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0 96%);
+            clip-path: polygon(0 0, 100% 0, 100% 97%, 0 97%);
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 97%, 0 97%);
         }
 
-        /* Footer & Disclaimer */
+        /* AI Assistant Section - القسم الجديد */
+        .ai-assistant-section {
+            margin: 60px auto;
+            position: relative;
+        }
+
+        .ai-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .ai-title {
+            font-size: 42px;
+            font-weight: 900;
+            background: var(--ai-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .ai-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 4px;
+            background: var(--ai-gradient);
+            border-radius: 2px;
+        }
+
+        .ai-subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .ai-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-bottom: 40px;
+            transition: var(--transition);
+        }
+
+        .ai-container:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .ai-welcome {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+            background-size: 200% 100%;
+            animation: gradientFlow 4s ease infinite;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-welcome::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .ai-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .ai-call-to-action {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .ai-description {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .ai-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 40px;
+            background: #f8fafc;
+        }
+
+        .ai-feature {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .ai-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .ai-feature-icon {
+            font-size: 40px;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+        }
+
+        .ai-feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+
+        .ai-feature-desc {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .ai-action-button {
+            display: block;
+            width: 300px;
+            margin: 40px auto;
+            padding: 20px 40px;
+            background: var(--ai-gradient);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            font-size: 22px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-action-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .ai-action-button::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 40px;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            transition: all 0.6s;
+        }
+
+        .ai-action-button:hover::after {
+            right: 120%;
+        }
+
+        .ai-action-button i {
+            margin-left: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        /* Footer */
         .footer-content {
             background: var(--card-bg);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            padding: 35px;
-            margin: 30px auto 40px;
+            padding: 40px;
+            margin: 50px auto;
             border: 1px solid var(--border-color);
             position: relative;
             z-index: 3;
         }
 
         .disclaimer {
-            font-size: 16px;
+            font-size: 17px;
             color: var(--text-light);
             line-height: 1.8;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             text-align: justify;
-            padding-bottom: 25px;
+            padding-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -189,61 +442,98 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 25px;
         }
 
         .audit-team {
-            font-weight: 700;
+            font-weight: 800;
             color: var(--primary-blue);
-            font-size: 18px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .audit-team span {
             color: var(--accent-blue);
         }
 
+        .audit-team i {
+            color: var(--ai-green);
+            font-size: 24px;
+        }
+
         .copyright {
             color: var(--text-light);
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
         }
 
         .watermark {
             opacity: 0.7;
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-light);
             text-align: center;
-            margin-top: 10px;
+            margin-top: 15px;
+        }
+
+        /* AI Chat Interface (Hidden by default) */
+        .ai-chat-interface {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 400px;
+            height: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            z-index: 1000;
+            overflow: hidden;
+            border: 2px solid var(--accent-blue);
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
             .dashboard-wrapper {
-                height: 75vh;
+                height: 80vh;
             }
             
-            .iframe-mask-container iframe {
-                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 95%);
-                -webkit-clip-path: polygon(0 0, 100% 0, 100% 95%, 0 95%);
+            .ai-container {
+                margin: 0 20px;
             }
         }
 
         @media (max-width: 768px) {
-            .header-content {
-                padding: 0 15px;
+            .header {
+                padding: 25px 0;
             }
             
             .company-name {
-                font-size: 24px;
+                font-size: 26px;
             }
             
             .report-title {
-                font-size: 24px;
+                font-size: 28px;
             }
             
             .logo-badge {
-                font-size: 18px;
-                padding: 10px 20px;
+                padding: 12px 25px;
+                font-size: 20px;
+            }
+            
+            .ai-title {
+                font-size: 32px;
+            }
+            
+            .ai-call-to-action {
+                font-size: 24px;
+            }
+            
+            .ai-action-button {
+                width: 90%;
+                padding: 18px 30px;
+                font-size: 20px;
             }
             
             .footer-bottom {
@@ -252,39 +542,45 @@
             }
             
             .dashboard-wrapper {
-                height: 70vh;
+                height: 75vh;
             }
             
-            .iframe-mask-container iframe {
-                clip-path: polygon(0 0, 100% 0, 100% 94%, 0 94%);
-                -webkit-clip-path: polygon(0 0, 100% 0, 100% 94%, 0 94%);
+            .ai-chat-interface {
+                width: 95%;
+                left: 2.5%;
+                bottom: 20px;
+                height: 500px;
             }
         }
 
         @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
             .company-name {
-                font-size: 20px;
+                font-size: 22px;
             }
             
             .report-title {
-                font-size: 20px;
+                font-size: 24px;
+            }
+            
+            .ai-features {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+            
+            .ai-welcome {
+                padding: 30px 20px;
             }
             
             .footer-content {
-                padding: 25px 20px;
-            }
-            
-            .disclaimer {
-                font-size: 15px;
+                padding: 30px 20px;
             }
             
             .dashboard-wrapper {
-                height: 65vh;
-            }
-            
-            .iframe-mask-container iframe {
-                clip-path: polygon(0 0, 100% 0, 100% 93%, 0 93%);
-                -webkit-clip-path: polygon(0 0, 100% 0, 100% 93%, 0 93%);
+                height: 70vh;
             }
         }
     </style>
@@ -293,16 +589,17 @@
     <div class="header">
         <div class="container">
             <div class="header-content">
-                <div class="company-name">شركة رياض بليهد للاستشارات المحاسبية</div>
-                <div class="company-sub">Riyadh Bin Blihed for Accounting & Financial Consultancy</div>
-                
-                <div class="logo-section">
+                <div class="company-logo-section">
                     <div class="logo-badge">RBA</div>
                 </div>
+                
+                <div class="company-name">شركة رياض بليهد للاستشارات المحاسبية</div>
+                <div class="company-sub">Riyadh Bin Blihed for Accounting & Financial Consultancy</div>
                 
                 <div class="report-title">
                     لوحة مؤشرات مالية مختصرة – شركة الطريق المختصر للتسويق
                 </div>
+                <div class="report-subtitle">تحليل تفاعلي متقدم • رؤى عملية • اتخاذ قرارات مستنيرة</div>
             </div>
         </div>
     </div>
@@ -319,6 +616,60 @@
             </div>
         </div>
 
+        <!-- AI Assistant Section -->
+        <div class="ai-assistant-section">
+            <div class="ai-header">
+                <h2 class="ai-title">مساعدك الذكي للتحليل المالي</h2>
+                <p class="ai-subtitle">استخدم الذكاء الاصطناعي لفهم أعمق لتقاريرك المالية واتخاذ قرارات أفضل</p>
+            </div>
+            
+            <div class="ai-container">
+                <div class="ai-welcome">
+                    <div class="ai-icon">🤖</div>
+                    <h3 class="ai-call-to-action">اسألني عن الطريق وسوف أجيب لك!</h3>
+                    <p class="ai-description">
+                        أنا مساعدك الذكي الذي يفهم تقارير PowerBI بالكامل. أسألني عن أي مؤشر، ربحية، مبيعات، توقعات، أو أي استفسار مالي، وسأقدم لك إجابات ذكية وفورية مدعومة بالبيانات.
+                    </p>
+                </div>
+                
+                <div class="ai-features">
+                    <div class="ai-feature">
+                        <div class="ai-feature-icon">💡</div>
+                        <h4 class="ai-feature-title">تحليل ذكي</h4>
+                        <p class="ai-feature-desc">فهم عميق للمؤشرات المالية وتفسيرها بلغة بسيطة</p>
+                    </div>
+                    
+                    <div class="ai-feature">
+                        <div class="ai-feature-icon">⚡</div>
+                        <h4 class="ai-feature-title">إجابات فورية</h4>
+                        <p class="ai-feature-desc">ردود سريعة ودقيقة على جميع استفساراتك المالية</p>
+                    </div>
+                    
+                    <div class="ai-feature">
+                        <div class="ai-feature-icon">📊</div>
+                        <h4 class="ai-feature-title">رؤى عملية</h4>
+                        <p class="ai-feature-desc">توصيات قابلة للتطبيق لتحسين أدائك المالي</p>
+                    </div>
+                    
+                    <div class="ai-feature">
+                        <div class="ai-feature-icon">🔒</div>
+                        <h4 class="ai-feature-title">آمن وسري</h4>
+                        <p class="ai-feature-desc">بياناتك محمية بنظام أمان متطور</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="ai-action-button" onclick="openAIChat()">
+                تحدث مع المساعد الذكي <i class="fas fa-arrow-left"></i>
+            </button>
+            
+            <p style="text-align: center; color: var(--text-light); font-size: 16px; margin-top: 20px;">
+                <i class="fas fa-bolt" style="color: var(--ai-green); margin-left: 5px;"></i>
+                جرب الآن: اسأل "ما هي أهم المؤشرات في التقرير؟" أو "كيف يمكن تحسين الربحية؟"
+            </p>
+        </div>
+
+        <!-- Footer -->
         <div class="footer-content">
             <div class="disclaimer">
                 تم إعداد هذه اللوحة التحليلية بناءً على البيانات المالية والمعلومات التي تم مشاركتها مع فريق شركة رياض بن بليهد للاستشارات المحاسبية.
@@ -328,7 +679,8 @@
             
             <div class="footer-bottom">
                 <div class="audit-team">
-                    <span>Powered by</span> RBA Audit Team
+                    <i class="fas fa-robot"></i>
+                    <span>Powered by</span> RBA AI Audit Team
                 </div>
                 <div class="copyright">
                     © 2024 جميع الحقوق محفوظة | RBA – Riyadh Bin Blihed for Accounting & Financial Consultancy
@@ -336,9 +688,67 @@
             </div>
             
             <div class="watermark">
-                تم تصميم هذه اللوحة بنظام Power BI | إصدار: ديسمبر 2024
+                تم تصميم هذه اللوحة بنظام Power BI مع دعم الذكاء الاصطناعي المتقدم | إصدار: ديسمبر 2024
             </div>
         </div>
     </div>
+
+    <!-- AI Chat Interface (Will be implemented with JavaScript) -->
+    <div class="ai-chat-interface" id="aiChat">
+        <!-- Chat interface will be added here -->
+    </div>
+
+    <script>
+        function openAIChat() {
+            alert("🚀 ميزة المساعد الذكي قيد التطوير!\n\nسيكون متاحاً قريباً لمساعدتك في:\n• تحليل المؤشرات المالية\n• تفسير البيانات المعقدة\n• الإجابة على أسئلتك الفورية\n• تقديم توصيات عملية\n\nAPI المستخدم: DeepSeek AI");
+            
+            // For now, we'll show an alert. In production, this would open the chat interface
+            // document.getElementById('aiChat').style.display = 'block';
+            
+            // Optional: Scroll to AI section
+            document.querySelector('.ai-assistant-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+        
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effect to features
+            const features = document.querySelectorAll('.ai-feature');
+            features.forEach(feature => {
+                feature.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                feature.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe AI section elements
+            const aiElements = document.querySelectorAll('.ai-container, .ai-feature');
+            aiElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
